@@ -1,9 +1,16 @@
 function Calculator(input: string): number {
-    if (input === "") {
-      return  0;
+ if (input === "") {
+    return 0;
   }
+
   let delimiter = ",";
-  const numbers = input.split(delimiter);
+  if (input.startsWith("//")) {
+    const delimiterEndIndex = input.indexOf("\n");
+    delimiter = input.substring(2, delimiterEndIndex);
+    input = input.substring(delimiterEndIndex + 1);
+  }
+
+  const numbers = input.split(new RegExp(`[${delimiter}\n]`));
   const negativeNumbers = numbers.filter((num) => parseInt(num) < 0);
 
   if (negativeNumbers.length > 0) {
@@ -12,7 +19,7 @@ function Calculator(input: string): number {
     );
   }
 
-  return 0;
+  return numbers.reduce((sum, num) => sum + parseInt(num), 0);
 }
 
 

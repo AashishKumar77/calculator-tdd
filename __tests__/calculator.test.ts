@@ -13,3 +13,8 @@ test("should throw an exception for negative numbers", () => {
   );
 });
 
+
+test("should return the sum of numbers with a custom delimiter", () => {
+  expect(Calculator("//;\n1;2")).toBe(3);
+  expect(Calculator("//|\n4|5|6")).toBe(15);
+});
