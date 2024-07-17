@@ -29,3 +29,7 @@ test("should return the sum of two numbers separated by a comma", () => {
   expect(Calculator("3,4")).toBe(7);
 });
 
+test("should return the sum of multiple numbers separated by commas", () => {
+  expect(Calculator("1,2,3")).toBe(6);
+  expect(Calculator("4,5,6,7")).toBe(22);
+});
