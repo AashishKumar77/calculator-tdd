@@ -24,4 +24,8 @@ test("should return the number for a single number string", () => {
   expect(Calculator("2")).toBe(2);
 });
 
+test("should return the sum of two numbers separated by a comma", () => {
+  expect(Calculator("1,2")).toBe(3);
+  expect(Calculator("3,4")).toBe(7);
+});
 
