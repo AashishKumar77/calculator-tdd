@@ -1,8 +1,18 @@
 function Calculator(input: string): number {
     if (input === "") {
       return  0;
-    }
-    return 0; //  return for initial test
+  }
+  let delimiter = ",";
+  const numbers = input.split(delimiter);
+  const negativeNumbers = numbers.filter((num) => parseInt(num) < 0);
+
+  if (negativeNumbers.length > 0) {
+    throw new Error(
+      `negative numbers not allowed: ${negativeNumbers.join(",")}`
+    );
+  }
+
+  return 0;
 }
 
 
