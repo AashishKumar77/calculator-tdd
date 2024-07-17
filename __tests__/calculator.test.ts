@@ -18,3 +18,10 @@ test("should return the sum of numbers with a custom delimiter", () => {
   expect(Calculator("//;\n1;2")).toBe(3);
   expect(Calculator("//|\n4|5|6")).toBe(15);
 });
+
+test("should return the number for a single number string", () => {
+  expect(Calculator("1")).toBe(1);
+  expect(Calculator("2")).toBe(2);
+});
+
+
