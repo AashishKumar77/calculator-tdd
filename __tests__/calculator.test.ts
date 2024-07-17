@@ -33,3 +33,12 @@ test("should return the sum of multiple numbers separated by commas", () => {
   expect(Calculator("1,2,3")).toBe(6);
   expect(Calculator("4,5,6,7")).toBe(22);
 });
+
+test("should throw an exception for multiple negative numbers", () => {
+  expect(() => Calculator("1,-2,-3")).toThrow(
+    "negative numbers not allowed: -2,-3"
+  );
+  expect(() => Calculator("//;\n-1;-2;-3")).toThrow(
+    "negative numbers not allowed: -1,-2,-3"
+  );
+});
